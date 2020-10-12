@@ -26,6 +26,7 @@ class BasePage:
                     elements[0].click()
                     return self._driver.find(by, locator)
             raise e
+
     def steps(self, path):
         with open(path, encoding="utf-8") as f:
             steps:list[dict] = yaml.safe_load(f)
@@ -40,3 +41,6 @@ class BasePage:
                         for param in self._params:
                             content = content.replace("%s" % param, self._params[param])
                         self.send(content, step["by"], step["locator"])
+
+    def base_quit(self):
+        return self._driver.quit()

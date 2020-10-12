@@ -1,7 +1,7 @@
 from appium import webdriver
 
 from yiche_android.yiche_page.base_page import BasePage
-from yiche_android.yiche_page.brand_list import BrandList
+from yiche_android.yiche_page.new.brand_list import BrandList
 
 
 class App(BasePage):
@@ -17,7 +17,9 @@ class App(BasePage):
             # caps["deviceName"] = "emulator-5554"
             # OPPO手机
             # caps["deviceName"] = "c0926ab9"
-            caps["platformVersion"] = "7.1.1"
+            # caps["platformVersion"] = "7.1.1"
+            caps["platformVersion"] = "6.0"
+            caps['automationName'] = 'UiAutomator2'
             caps["appPackage"] = _package
             caps["appActivity"] = _activity
             caps["autoGrantPermissions"] = True

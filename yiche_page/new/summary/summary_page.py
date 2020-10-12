@@ -1,9 +1,12 @@
 from appium.webdriver.common.mobileby import MobileBy
+from appium.webdriver.common.touch_action import TouchAction
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 from yiche_android.yiche_page.base_page import BasePage
 from time import sleep
+
+from yiche_android.yiche_page.new.summary.model import Model
 
 
 class SummaryPage(BasePage):
@@ -54,3 +57,14 @@ class SummaryPage(BasePage):
         price_label = self.find(by="id", locator="owner_price_label")
         price_value = self.find(by="id", locator="owner_price_value")
         return price_label.text, price_value.text
+
+    # 红包
+    def goto_red_envelope(self):
+        self.find(by="id", locator="chg_title").click()
+        content = self.find(by="accessibility id", locator="购车红包1000元")
+        return content.get_attribute(name="content-desc")
+
+    # 前往车款列表页
+    def goto_model(self):
+        self.find(by="xpath", locator='//*[@text="车型"]').click()
+        return Model(self._driver)
