@@ -1,9 +1,10 @@
 import yaml
+from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.webdriver import WebDriver
 
 
 class BasePage:
-    _black_list = []
+    _black_list = [(MobileBy.ID, "MobileBy")]
     _error_count = 0
     _error_max = 10
     _params = {}
@@ -41,6 +42,3 @@ class BasePage:
                         for param in self._params:
                             content = content.replace("%s" % param, self._params[param])
                         self.send(content, step["by"], step["locator"])
-
-    def base_quit(self):
-        return self._driver.quit()

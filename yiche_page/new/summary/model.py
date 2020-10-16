@@ -106,3 +106,23 @@ class Model(BasePage):
                 i += 1
         btn = self.find(by="id", locator="askprice_txt_bottom")
         return btn.text
+
+    # 附近经销商-获取底价
+    def goto_dealers_ask_price(self):
+        action = TouchAction(self._driver)
+        window_rect = self._driver.get_window_rect()
+        width = window_rect['width']
+        height = window_rect['height']
+        x1 = width * 0.5
+        y1 = height * 0.6
+        y2 = height * 0.4
+        i = 0
+        while i < 100:
+            try:
+                self.find(by="id", locator="lbs_dealer_askprice_txt").click()
+                break
+            except Exception as e:
+                action.press(x=x1, y=y1).wait(200).move_to(x=x1, y=y2).release().perform()
+                i += 1
+        btn = self.find(by="id", locator="askprice_txt_bottom")
+        return btn.text

@@ -66,5 +66,19 @@ class SummaryPage(BasePage):
 
     # 前往车款列表页
     def goto_model(self):
-        self.find(by="xpath", locator='//*[@text="车型"]').click()
+        action = TouchAction(self._driver)
+        window_rect = self._driver.get_window_rect()
+        width = window_rect['width']
+        height = window_rect['height']
+        x1 = width * 0.5
+        y1 = height * 0.6
+        y2 = height * 0.4
+        i = 0
+        while i < 100:
+            try:
+                self.find(by="xpath", locator='//*[@text="车型"]').click()
+                break
+            except Exception as e:
+                action.press(x=x1, y=y1).wait(200).move_to(x=x1, y=y2).release().perform()
+                i += 1
         return Model(self._driver)

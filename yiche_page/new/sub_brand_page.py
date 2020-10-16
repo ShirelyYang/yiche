@@ -12,7 +12,7 @@ class SubBrandPage(BasePage):
         height = window_rect['height']
         x1 = width * 0.5
         y1 = height * 0.6
-        y2 = height * 0.3
+        y2 = height * 0.4
         i = 0
         while i < 10:
             try:
