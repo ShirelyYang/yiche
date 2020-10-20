@@ -19,9 +19,9 @@ class App(BasePage):
             caps["deviceName"] = "127.0.0.1:7555"
             # caps["deviceName"] = "emulator-5554"
             # OPPO手机
-            # caps["deviceName"] = "c0926ab9"
-            # caps["platformVersion"] = "7.1.1"
-            caps["platformVersion"] = "6.0"
+            caps["deviceName"] = "c0926ab9"
+            caps["platformVersion"] = "7.1.1"
+            # caps["platformVersion"] = "6.0"
             caps['automationName'] = 'UiAutomator2'
             caps["appPackage"] = _package
             caps["appActivity"] = _activity
