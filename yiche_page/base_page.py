@@ -4,7 +4,7 @@ from appium.webdriver.webdriver import WebDriver
 
 
 class BasePage:
-    _black_list = [(MobileBy.ID, "MobileBy")]
+    _black_list = [(MobileBy.ID, "fwclIvClose")]
     _error_count = 0
     _error_max = 10
     _params = {}

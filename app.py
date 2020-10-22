@@ -16,7 +16,7 @@ class App(BasePage):
             caps = {}
             caps["platformName"] = "Android"
             # MUMU模拟器
-            caps["deviceName"] = "127.0.0.1:7555"
+            # caps["deviceName"] = "127.0.0.1:7555"
             # caps["deviceName"] = "emulator-5554"
             # OPPO手机
             caps["deviceName"] = "c0926ab9"
