@@ -1,6 +1,6 @@
 import pytest
 from appium.webdriver.common.mobileby import MobileBy
-
+from time import sleep
 from yiche_android.yiche_page.base_page import BasePage
 
 
@@ -14,11 +14,13 @@ class ModelComparison(BasePage):
         self.find(by="xpath", locator='//*[@text="奔驰GLC"]').click()
         self.find(by="xpath", locator='//*[contains(@text, "动感型")]').click()
 
-        self.find(by="xpath", locator='//*(@text="添加车款")').click()
-        self.find(by="id", locator="searchEdtTxt").send_keys("路虎")
-        self.find(by="xpath", locator='//*[@resourceid="txtView" and @text="揽胜极光"]').click()
+        # self.find(by="xpath", locator='//*(@text="添加车款")').click()
+        self.find(by="id", locator="compare_addcar_txt").click()
+        self.find(by="id", locator="searchEdtTxt").click()
+        self.find(by="id", locator="searchEt").send_keys("路虎")
+        self.find(by="xpath", locator='//*[@resource-id="com.yiche.price:id/txtView" and @text="揽胜极光"]').click()
         self.find(by="xpath", locator='//*[@text="揽胜极光"]').click()
-        self.find(by="xpath", locator='//*[contains(@text, "动感型")]').click()
+        self.find(by="xpath", locator='//*[contains(@text, "运动科技版")]').click()
 
     # 添加车款
     def add_model(self):
@@ -61,8 +63,13 @@ class ModelComparison(BasePage):
             empty_info = self.find(by="id", locator="compare_empty_tip1")
             if empty_info.text == "暂无车款信息！快去添加车型对比吧":
                 self.add_model()
+                self.find(by="id", locator="title_right_btn").click()
+                self.find(by="id", locator="compare_selectall_txt").click()
+                self.find(by="id", locator="compare_delete_txt").click()
+                return empty_info.text
         except Exception as e:
             self.find(by="id", locator="title_right_btn").click()
             self.find(by="id", locator="compare_selectall_txt").click()
             self.find(by="id", locator="compare_delete_txt").click()
+            empty_info = self.find(by="id", locator="compare_empty_tip1")
             return empty_info.text

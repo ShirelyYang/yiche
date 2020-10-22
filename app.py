@@ -25,6 +25,8 @@ class App(BasePage):
             caps['automationName'] = 'UiAutomator2'
             caps["appPackage"] = _package
             caps["appActivity"] = _activity
+            caps["unicodeKeyBoard"] = "true"
+            caps["resetKeyBoard"] = "true"
             caps["autoGrantPermissions"] = True
             caps["noReset"] = True
             caps['skipServerInstallation'] = True
