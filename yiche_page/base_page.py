@@ -4,7 +4,8 @@ from appium.webdriver.webdriver import WebDriver
 
 
 class BasePage:
-    _black_list = [(MobileBy.ID, "fwclIvClose")]
+    _black_list = [(MobileBy.ID, "fwclIvClose"), (MobileBy.ID, "com.yiche.price:id/frpTvClose"),
+                   (MobileBy.ID, "brand_chg_dialog_close")]
     _error_count = 0
     _error_max = 10
     _params = {}
