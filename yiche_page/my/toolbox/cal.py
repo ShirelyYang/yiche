@@ -1,25 +1,30 @@
 from appium.webdriver.common.touch_action import TouchAction
 from yiche_android.yiche_page.base_page import BasePage
+from time import sleep
 
 
 class Calculator(BasePage):
     def cal(self):
         self.find(by="id", locator="carNameTxt").click()
-        action = TouchAction(self._driver)
-        window_rect = self._driver.get_window_rect()
-        width = window_rect['width']
-        height = window_rect['height']
-        x1 = width * 0.5
-        y1 = height * 0.6
-        y2 = height * 0.4
-        i = 0
-        while i < 10:
-            try:
-                self.find(by="xpath", locator='//*[@text="奔驰"]').click()
-                break
-            except Exception as e:
-                action.press(x=x1, y=y1).wait(200).move_to(x=x1, y=y2).release().perform()
-                i += 1
+        sleep(3)
+        # action = TouchAction(self._driver)
+        # window_rect = self._driver.get_window_rect()
+        # width = window_rect['width']
+        # height = window_rect['height']
+        # x1 = width * 0.5
+        # y1 = height * 0.6
+        # y2 = height * 0.4
+        # i = 0
+        # while i < 10:
+        #     try:
+        #         self.find(by="xpath", locator='//*[@text="奔驰"]').click()
+        #         break
+        #     except Exception as e:
+        #         action.press(x=x1, y=y1).wait(200).move_to(x=x1, y=y2).release().perform()
+        #         i += 1
+        self.find(by="id", locator="searchEdtTxt").click()
+        self.find(by="id", locator="searchEt").send_keys("奔驰GLC")
+        self.find(by="xpath", locator='//*[@text="奔驰GLC"]').click()
         self.find(by="xpath", locator="//*[@text='奔驰GLC']").click()
         # price = self.find(by="xpath", locator='//*[@text="35.38万起"]').text
         self.find(by="xpath", locator="//*[contains(@text, '豪华型')]").click()
