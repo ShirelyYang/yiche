@@ -24,7 +24,8 @@ class Calculator(BasePage):
         #         i += 1
         self.find(by="id", locator="searchEdtTxt").click()
         self.find(by="id", locator="searchEt").send_keys("奔驰GLC")
-        self.find(by="xpath", locator='//*[@text="奔驰GLC"]').click()
+        # self.find(by="xpath", locator='//*[@text="奔驰GLC"]').click()
+        self.find(by="id", locator="txtView").click()
         self.find(by="xpath", locator="//*[@text='奔驰GLC']").click()
         # price = self.find(by="xpath", locator='//*[@text="35.38万起"]').text
         self.find(by="xpath", locator="//*[contains(@text, '豪华型')]").click()

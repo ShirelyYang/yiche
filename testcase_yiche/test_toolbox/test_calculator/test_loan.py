@@ -2,6 +2,12 @@ from yiche_android.app import App
 
 
 class TestLoan:
+    def setup(self):
+        self.main = App()
+
+    def teardown(self):
+        self.main.base_quit()
+
     def test_loan(self):
-        contains = App().start().my().goto_cal().loan()
+        contains = self.main.start().my().goto_cal().loan()
         assert contains == "首付比例"

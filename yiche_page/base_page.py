@@ -44,3 +44,6 @@ class BasePage:
                         for param in self._params:
                             content = content.replace("%s" % param, self._params[param])
                         self.send(content, step["by"], step["locator"])
+
+    def base_quit(self):
+        return self._driver.quit()

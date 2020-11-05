@@ -1,5 +1,5 @@
 from appium.webdriver.common.touch_action import TouchAction
-
+from time import sleep
 from yiche_android.yiche_page.base_page import BasePage
 
 
@@ -11,6 +11,9 @@ class NearbyDealers(BasePage):
         return sales_list.text
 
     def map(self):
+        self.find(by="id", locator="tv_head_location").click()
+        self.find(by="xpath", locator='//*[contains(@text, "福建")]').click()
+        self.find(by="xpath", locator='//*[@text="泉州"]').click()
         action = TouchAction(self._driver)
         window_rect = self._driver.get_window_rect()
         width = window_rect['width']
@@ -21,12 +24,12 @@ class NearbyDealers(BasePage):
         i = 0
         while i < 100:
             try:
-                self.find(by="xpath", locator='//*[contains(@text, "泉州大众汽车")]/..'
-                                              '/*[@resource-id="com.yiche.price:id/tv_map"]').click()
+                self.find(by="xpath", locator='//*[contains(@text, "泉州大众汽车")]/..//*[@resource-id="com.yiche.price:id/iv_gps"]').click()
                 break
             except Exception as e:
                 action.press(x=x1, y=y1).wait(200).move_to(x=x1, y=y2).release().perform()
                 i += 1
+        sleep(3)
         address = self.find(by="xpath", locator='//*[@text="泉州展览城"]')
         return address.text
 

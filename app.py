@@ -12,14 +12,14 @@ class App(BasePage):
         _package = 'com.yiche.price'
         _activity = '.MainActivity'
         if self._driver is None:
-            sleep(10)
+            sleep(3)
             caps = {}
             caps["platformName"] = "Android"
             # MUMU模拟器
-            caps["deviceName"] = "127.0.0.1:7555"
-            caps["deviceName"] = "emulator-5554"
+            # caps["deviceName"] = "127.0.0.1:7555"
+            # caps["deviceName"] = "emulator-5554"
             # OPPO手机
-            # caps["deviceName"] = "c0926ab9"
+            caps["deviceName"] = "c0926ab9"
             # caps["platformVersion"] = "7.1.1"
             # caps["platformVersion"] = "6.0"
             caps['automationName'] = 'UiAutomator2'
@@ -45,4 +45,4 @@ class App(BasePage):
         return My(self._driver)
 
     # def quit(self):
-    #     return self._driver.quit()
+    #     self._driver.quit()
