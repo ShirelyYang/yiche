@@ -25,11 +25,17 @@ class NearbyDealers(BasePage):
         while i < 100:
             try:
                 self.find(by="xpath", locator='//*[contains(@text, "泉州大众汽车")]/..//*[@resource-id="com.yiche.price:id/iv_gps"]').click()
+                sleep(3)
                 break
             except Exception as e:
                 action.press(x=x1, y=y1).wait(200).move_to(x=x1, y=y2).release().perform()
                 i += 1
         sleep(3)
+        # 模拟器
+        # address = self.find(by="xpath", locator='//*[@content-desc="泉州展览城-东门"]')
+        # return address.get_attribute(name="content-desc")
+
+        # OPPO
         address = self.find(by="xpath", locator='//*[@text="泉州展览城"]')
         return address.text
 
@@ -51,6 +57,5 @@ class NearbyDealers(BasePage):
                 action.press(x=x1, y=y1).wait(200).move_to(x=x1, y=y2).release().perform()
                 i += 1
         self.find(by="xpath", locator='//*[@text="深圳"]').click()
-        addr = self.find(by="xpath", locator='//*[contains(@text, "深圳东通大众")]/..'
-                                              '/*[@resource-id="com.yiche.price:id/dealer_address"]')
+        addr = self.find(by="xpath", locator='//*[contains(@text, "深圳东通大众")]/..//*[@resource-id="com.yiche.price:id/dealer_address"]')
         return addr.text

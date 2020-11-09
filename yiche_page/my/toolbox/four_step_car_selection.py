@@ -118,8 +118,8 @@ class FourStepCarSelection(BasePage):
         width = window_rect['width']
         height = window_rect['height']
         x1 = width * 0.8
-        y1 = height * 0.7
-        x2 = height * 0.3
+        y1 = height * 0.5
+        x2 = width * 0.2
         i = 0
         while i < 100:
             try:

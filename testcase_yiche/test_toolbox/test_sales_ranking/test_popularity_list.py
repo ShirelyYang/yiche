@@ -9,5 +9,5 @@ class TestPopularityList:
         self.main.base_quit()
 
     def test_popularity_list(self):
-        price = self.main.start().my().more().goto_sales_ranking().popularity_list()
-        assert price == "142.98-189.88 万"
+        type = self.main.start().my().more().goto_sales_ranking().popularity_list()
+        assert type == "进口/中大型SUV"

@@ -27,21 +27,21 @@ class SalesRanking(BasePage):
         self.find(by="id", locator="car_suv_tv").click()
         self.find(by="xpath", locator='//*[@text="中大型SUV"]').click()
         self.window_scroll(car="北京BJ80")
-        price = self.find(by="id", locator="brandtype_dealerprice_txt")
-        return price.text
+        type = self.find(by="id", locator="brandtype_serial_type")
+        return type.text
 
     def comment_list(self):
         self.find(by="id", locator="rank_comment_tv").click()
         self.find(by="id", locator="car_suv_ll").click()
         self.find(by="xpath", locator='//*[@text="中大型SUV"]').click()
         self.window_scroll(car="揽胜运动版")
-        price = self.find(by="id", locator="brandtype_dealerprice_txt")
-        return price.text
+        type = self.find(by="id", locator="brandtype_serial_type")
+        return type.text
 
     def popularity_list(self):
         self.find(by="id", locator="rank_popularity_tv").click()
         self.find(by="id", locator="car_suv_tv").click()
         self.find(by="xpath", locator='//*[@text="中大型SUV"]').click()
         self.window_scroll(car="奔驰G级")
-        price = self.find(by="id", locator="brandtype_dealerprice_txt")
-        return price.text
+        type = self.find(by="id", locator="brandtype_serial_type")
+        return type.text
