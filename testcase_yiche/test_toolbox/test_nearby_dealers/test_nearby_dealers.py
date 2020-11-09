@@ -1,4 +1,4 @@
-from yiche_android.app import App
+from yiche_android.yiche_page.app import App
 
 
 class TestNearbyDealers:
